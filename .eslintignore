@@ -1,0 +1,8 @@
+node_modules
+build 
+
+*.png
+*.svg
+*.css
+**/*.snap  
+

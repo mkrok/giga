@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InitialPage should match snapshot 1`] = `
+<div
+  className="sc-iAEyYk bJrrDb"
+>
+  <div
+    className="sc-beqWaB hgkBcK"
+  >
+    Giga Techspace coding challenge
+  </div>
+  <div
+    className="sc-dmqHEX gRVxk"
+  >
+    <div
+      className="sc-gueYoa fWgVAL"
+    >
+      <label>
+        0
+      </label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </div>
+    <div
+      className="sc-gueYoa fWgVAL"
+    >
+      <label>
+        1
+      </label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </div>
+    <div
+      className="sc-gueYoa fWgVAL"
+    >
+      <label>
+        2
+      </label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </div>
+    <div
+      className="sc-gueYoa fWgVAL"
+    >
+      <label>
+        3
+      </label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </div>
+    <div
+      className="sc-gueYoa fWgVAL"
+    >
+      <label>
+        4
+      </label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </div>
+    <div
+      className="sc-gueYoa fWgVAL"
+    >
+      <label>
+        5
+      </label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </div>
+    <div
+      className="sc-gueYoa fWgVAL"
+    >
+      <label>
+        6
+      </label>
+      <input
+        checked={false}
+        onChange={[Function]}
+        type="checkbox"
+      />
+    </div>
+  </div>
+  <div
+    className="sc-jTrPJq ehyKtQ"
+  />
+</div>
+`;
