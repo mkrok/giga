@@ -57,10 +57,8 @@ const Data = ({ index }: DataProps) => {
   }, []);
 
   useEffect(() => {
-    if (letters.length) {
-      newData[index] = letters;
-      setAppData({ ...appData, data: newData });
-    }
+    newData[index] = letters;
+    setAppData({ ...appData, data: newData });
   }, [letters.length]);
 
   return (
