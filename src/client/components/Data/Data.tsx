@@ -22,6 +22,7 @@ const DataStyle = styled.div`
 const DataHeader = styled.div`
   border-bottom: 1px solid #aaa;
   margin-bottom: 1rem;
+  color: white;
 `;
 
 type DataProps = {
