@@ -9,6 +9,8 @@ type CheckboxProps = {
 
 const CheckboxStyle = styled.div`
   font-size: 1.5rem;
+  width: 2rem;
+  height: 2rem;
 `;
 
 const Checkbox = ({ index }: CheckboxProps) => {
