@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { useAppData } from '~/client/context/AppStateProvider';
 import { SIZE } from '~/config/constants';
@@ -8,6 +7,7 @@ const DataSectionStyle = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
   @media (max-width: 768px) {
     flex-direction: column;
   }

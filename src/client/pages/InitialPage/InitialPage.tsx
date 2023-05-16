@@ -20,7 +20,7 @@ const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
   min-height: 100vh;
   background-color: #222;
   color: #ccc;

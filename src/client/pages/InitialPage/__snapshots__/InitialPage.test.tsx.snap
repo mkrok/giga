@@ -2,7 +2,7 @@
 
 exports[`InitialPage should match snapshot 1`] = `
 <div
-  className="sc-iAEyYk bJrrDb"
+  className="sc-iAEyYk ilKzGg"
 >
   <div
     className="sc-beqWaB hgkBcK"
@@ -98,7 +98,7 @@ exports[`InitialPage should match snapshot 1`] = `
     </div>
   </div>
   <div
-    className="sc-jTrPJq ehyKtQ"
+    className="sc-jTrPJq isvpCT"
   />
 </div>
 `;
