@@ -27,6 +27,7 @@ const DataContent = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  overflow-x: hidden;
 `;
 
 type DataProps = {
