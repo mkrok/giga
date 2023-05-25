@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { useAppData } from '~/client/context/AppStateProvider';
-import { DataType } from '~/client/context/@types.context';
-import { DATA_LENGTH } from '~/config/constants';
+import fillGaps from '~/client/functions/fillGaps';
 
 const DataStyle = styled.div`
   width: 240px;
@@ -12,8 +11,7 @@ const DataStyle = styled.div`
   background-color: black;
   color: #aaa;
   margin: 1rem;
-  overflow-y: scroll;
-  font-size: 0.75rem;
+  font-size: 1.5rem;
   display: flex;
   flex-direction: column;
   padding: 0.5rem;
@@ -25,32 +23,41 @@ const DataHeader = styled.div`
   color: white;
 `;
 
+const DataContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
 type DataProps = {
   index: number;
 };
 
 const Data = ({ index }: DataProps) => {
   const { appData, setAppData } = useAppData();
-  const [letters, setLetters] = useState([]);
   const { data } = appData;
-
-  let newLetters = letters;
-  let newData: DataType[] = data;
+  const [letters, setLetters] = useState(data[index]);
+  const endRef = useRef(null);
+  const scrollToBottom = () => {
+    endRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
-      fetch('/data', {
+      fetch(`/letters/${index}`, {
         headers: {
           'Data-Stream': `${index}`,
         },
       })
         .then(response => response.json())
         .then(content => {
-          newLetters = [...newLetters, content];
-          if (newLetters.length > DATA_LENGTH) {
-            newLetters.shift();
-          }
-          setLetters(newLetters);
+          setLetters(previous => {
+            if (content.letter_index === 0) {
+              return [content];
+            } else {
+              return [...previous, content].sort((a, b) => a.letter_index - b.letter_index);
+            }
+          });
         })
         .catch(error => setAppData({ ...appData, error: true, errorMessage: error.message }));
     }, 3000);
@@ -58,16 +65,20 @@ const Data = ({ index }: DataProps) => {
   }, []);
 
   useEffect(() => {
-    newData[index] = letters;
-    setAppData({ ...appData, data: newData });
+    setAppData(previous => {
+      previous.data[index] = letters;
+      return { ...previous };
+    });
+    scrollToBottom();
   }, [letters.length]);
 
   return (
     <DataStyle>
       <DataHeader>{`Data stream: ${index}`}</DataHeader>
-      {data[index].map((letter, index) => (
-        <div key={`letter-${index + 1}`}>{`${letter.letter} - ${letter.letter_index}`}</div>
-      ))}
+      <DataContent>
+        {fillGaps(letters).map((letter, index) => `${letter.letter}`)}
+        <div ref={endRef} />
+      </DataContent>
     </DataStyle>
   );
 };

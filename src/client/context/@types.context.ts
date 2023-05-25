@@ -1,9 +1,11 @@
 import { Dispatch, SetStateAction } from 'react';
 
-export type DataType = {
+export type Letter = {
   letter: string;
   letter_index: number;
-}[];
+};
+
+export type DataType = Letter[];
 
 export type AppDataType = {
   checkboxes: boolean[];
